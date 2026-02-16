@@ -1,36 +1,81 @@
-/* Smooth Scrolling for the whole page */
+/* GLOBAL SMOOTH SCROLL */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
 
-/* Fixed Header Logic */
-nav {
-    @apply transition-all duration-300;
-}
-
-/* The Call Button Styling - based on your image */
-.btn-call-nav {
-    @apply bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold 
-           hover:bg-blue-700 hover:scale-105 active:scale-95
-           transition-all duration-200 flex items-center gap-2
-           shadow-lg shadow-blue-900/20 border-2 border-transparent;
-}
-
-/* Micro-interaction for the Nav Links */
+/* NAV LINKS */
 .nav-link {
-    @apply transition-all duration-300 hover:text-blue-500 relative py-2 font-bold uppercase tracking-tight;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
 }
 
-.nav-link::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300;
+.nav-link:hover {
+    color: #3b82f6; /* Blue 500 */
 }
 
-.nav-link:hover::after {
-    @apply w-full;
+/* THE HEADER CALL BUTTON - FORCED VISIBILITY */
+.header-call-btn {
+    background-color: #2563eb !important; /* Blue 600 */
+    color: #ffffff !important;
+    padding: 10px 24px;
+    border-radius: 9999px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s ease;
 }
 
-/* Ensure the hero doesn't get hidden behind the fixed header */
-section:first-of-type {
-    padding-top: 80px;
+.header-call-btn:hover {
+    background-color: #1d4ed8 !important; /* Darker Blue */
+    transform: scale(1.05);
+}
+
+/* HERO CALL CTA */
+.hero-call-cta {
+    display: inline-block;
+    padding: 24px 48px;
+    background-color: #ffffff;
+    color: #2563eb;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.hero-call-cta:hover {
+    transform: translateY(-5px);
+    background-color: #f8fafc;
+}
+
+/* CARDS */
+.service-box {
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 32px;
+    transition: all 0.5s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.05);
+}
+
+.review-card {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    color: #cbd5e1;
+    font-style: italic;
+    font-size: 1.25rem;
 }

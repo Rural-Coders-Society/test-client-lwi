@@ -1,23 +1,22 @@
-window.onscroll = function() {
+// Header Scroll Logic
+window.addEventListener('scroll', function() {
     const nav = document.querySelector('nav');
-    const stickyCall = document.getElementById('sticky-call');
-    
-    // Header shadow on scroll
-    if (window.scrollY > 50) {
-        nav.classList.add('shadow-xl', 'bg-slate-900');
-        nav.classList.remove('bg-slate-900/90');
+    if (window.scrollY > 80) {
+        nav.style.backgroundColor = "rgba(15, 23, 42, 0.95)"; // Slate 900 with blur
+        nav.style.backdropFilter = "blur(10px)";
+        nav.style.boxShadow = "0 10px 30px rgba(0,0,0,0.3)";
     } else {
-        nav.classList.remove('shadow-xl', 'bg-slate-900');
-        nav.classList.add('bg-slate-900/90');
+        nav.style.backgroundColor = "#0f172a";
+        nav.style.boxShadow = "none";
     }
+});
 
-    // Show sticky mobile bar after hero
-    const heroHeight = window.innerHeight * 0.8;
-    if (window.scrollY > heroHeight) {
-        stickyCall.classList.add('translate-y-0');
-        stickyCall.classList.remove('translate-y-full');
-    } else {
-        stickyCall.classList.add('translate-y-full');
-        stickyCall.classList.remove('translate-y-0');
-    }
-};
+// Verify Smooth Scroll is firing
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
